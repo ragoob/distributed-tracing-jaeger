@@ -1,0 +1,10 @@
+FROM node:alpine
+WORKDIR /usr/app
+RUN mkdir tracer-lib/build
+COPY package.json .
+RUN npm install
+COPY dist .
+COPY ./tracer-lib/build /usr/app/tracer-lib/build/
+CMD ["node","catalog-service/index.js"]
+
+
